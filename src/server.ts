@@ -1,11 +1,11 @@
-import express from 'express'
+import express, { Request, Response } from 'express'
 import colors from 'colors'
 import { NODE_PORT } from './config/env.config'
 import prisma from './lib/prisma-client'
 
 const app = express()
 
-app.get('/health', async (req, res) => {
+app.get('/health', async (req: Request, res: Response) => {
   try {
     await prisma.$connect()
     console.log('API health is good, db connection successfull')
